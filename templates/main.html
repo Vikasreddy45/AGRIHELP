@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGRIHELP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="head">
+        <header class="header">
+            <h3 class="heading">AGRIHELP</h3>
+            <div class="toggle"></div>
+        </header>
+       <div class="contentBox">
+           <h2>Bringing Growth In Agriculture</h2>
+           <p class="text">We suggest you the best suitable crop for your Land.</p>
+           <button>PREDICT NOW</button>
+       </div>
+        <img src="{{ url_for('static', filename='bg1.jpg') }}" alt="">
+    </div>
+    <section class="about">
+        <h2 class="heading">ABOUT US</h2>
+        <div class="contentBox">
+            <p class="text">
+                Farmers living in rural area are unaware of the different type of other crops that can be cultivated in their land.
+                This leads to high cultivation of similar crops which results a low price. In order to avoid this we provide Farmers
+                the crops which can boost their income and can be cultivated in their soil. This will also help in reaching the demand 
+                of every crop in the market. We even provide the required articles which help the farmer to cultivate the crop if he is 
+                to that crop.
+            </p>
+            <div class="imageBox"></div>
+        </div>
+    </section>
+    <section class="pred">
+        <h2 class="heading">PREDICT THE CROP</h2>
+        <div class="container">
+            <div class="form">
+                <form action="{{url_for('predict')}}" method="POST">
+                <input type="text" name="temperature" required="required" placeholder="Temperature"/><br>
+                <input type="text" name="humidity" required="required" placeholder="Humidity"/><br>
+                <input type="text" name="ph" required="required" placeholder="PH-value"/><br>
+                <input type="text" name="rainfall" required="required" placeholder="Rainfall"/><br>
+                <button type="submit">PREDICT</button>
+                </form>
+            </div>
+            <div class="results">
+                <h3>Suitable Crop is </h3>
+                <h2>{{prediction_text}}</h2>
+            </div>
+        </div>
+    </section>
+    <section class="contact">
+            <h2 class="heading">CONTACT US</h2>
+            <p class="text">Have any questions? We'd love to hear from you.</p>
+            <div class="container">
+                <div class="box">
+                    <h3>Help & Support</h3>
+                    <p class="text">Our support team is spread across the country to solve all the doubts while growing a crop.</p>
+                    <p>Phone:XXXXX-XXXXX</p>
+                    <p>Email:support@agrihelp.com</p>
+                </div>
+                <div class="box">
+                    <h3>Sales</h3>
+                    <p class="text">Get in touch with our sales team if your face any trouble to sell your crop.</p>
+                    <p>Phone:XXXXX-XXXXX</p>
+                    <p>Email:sales@agrihelp.com</p>
+                </div>
+            </div>
+    </section>
+    <footer class="footer">
+        <h3 class="text">Design and Developed By AGRIHELP</h3>
+    </footer>
+</body>
+</html>
